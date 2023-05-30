@@ -18,39 +18,39 @@ export const cartReducer = (state = { cartItems: [], shippingAddress: {} }, acti
 
             if (existItem) {
                 return {
-                    ...state,
+                    state,
                     cartItems: state.cartItems.map(x =>
                         x.product === existItem.product ? item : x)
                 }
 
             } else {
                 return {
-                    ...state,
+                    state,
                     cartItems: [...state.cartItems, item]
                 }
             }
 
         case CART_REMOVE_ITEM:
             return {
-                ...state,
+                state,
                 cartItems: state.cartItems.filter(x => x.product !== action.payload)
             }
 
         case CART_SAVE_SHIPPING_ADDRESS:
             return {
-                ...state,
+                state,
                 shippingAddress: action.payload
             }
 
         case CART_SAVE_PAYMENT_METHOD:
             return {
-                ...state,
+                state,
                 paymentMethod: action.payload
             }
 
         case CART_CLEAR_ITEMS:
             return {
-                ...state,
+                state,
                 cartItems: []
             }
 
